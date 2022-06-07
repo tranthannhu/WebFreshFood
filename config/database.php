@@ -67,7 +67,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => 'https://testnhu.herokuapp.com/',
+            'url' => 'postgres://ghpwhkuzdczmkq:586d8c28f8725ce5235bf98ac83687d52340f015157f10d7ed9daf675e6b9a3d@ec2-34-198-186-145.compute-1.amazonaws.com:5432/d71eh8nvs25fqg',
             'host' => 'ec2-34-198-186-145.compute-1.amazonaws.com',
             'port' => '5432',
             'database' => 'd71eh8nvs25fqg',
