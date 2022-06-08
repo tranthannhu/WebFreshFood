@@ -14,6 +14,7 @@ class UserController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         $users = User::all();
