@@ -62,6 +62,7 @@ Route::get('public/categories', 'User\CategoryController@index');
 Route::get('public/categories/{category}', 'User\CategoryController@show');
 
 Route::get('public/products', 'User\ProductController@index');
+Route::get('public/lastestproducts', 'User\ProductController@lastestProduct');
 Route::get('public/products/{product}', 'User\ProductController@show');
 //
 //Route::group([

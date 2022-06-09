@@ -23,17 +23,17 @@ class ProductController extends BaseController
     {
         //
         $products = Product::with('category')->get();
-        foreach ($products as $product){
-            $userWish =  UserWishList::where([
-                ['product_id', $product->id],
-                ['user_id', DB::raw(Auth::id())],
-            ])->first();
-            if($userWish) {
-                $product->isWish = true;
-            } else {
-                $product->isWish = false;
-            }
-        }
+        // foreach ($products as $product){
+        //     $userWish =  UserWishList::where([
+        //         ['product_id', $product->id],
+        //         ['user_id', DB::raw(Auth::id())],
+        //     ])->first();
+        //     if($userWish) {
+        //         $product->isWish = true;
+        //     } else {
+        //         $product->isWish = false;
+        //     }
+        // }
 //        dd($products);
         return $this->sendResponse($products->toArray(), 'Products retrieved successfully.');
     }
@@ -124,5 +124,12 @@ class ProductController extends BaseController
 
 
         return $this->sendResponse($wishList->toArray(), 'Add To wishlish successfully.');
+    }
+    public function lastestProduct(Product $product)
+    {
+        //
+        $products = Product::orderBy('id', 'desc')->take(5)->get();
+
+        return $this->sendResponse($products->toArray(), '5 lastest products retrieved successfully.');
     }
 }
