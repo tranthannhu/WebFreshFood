@@ -19,7 +19,8 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        \App\Http\Middleware\CORS::class, // added for cross origin
+        // \App\Http\Middleware\CORS::class, // added for cross origin
+        \Fruitcake\Cors\HandleCors::class,
     ];
 
     /**

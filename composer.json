@@ -14,7 +14,8 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "nesbot/carbon": "^2.18",
-        "tymon/jwt-auth": "^1.0.0-rc.4.1"
+        "tymon/jwt-auth": "^1.0.0-rc.4.1",
+        "fruitcake/laravel-cors": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
