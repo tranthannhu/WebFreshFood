@@ -15,9 +15,15 @@ class Controller extends BaseController
 
     /**
      * @OA\Info(
+<<<<<<< HEAD
      *     description="This is a sample Userstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).",
      *     version="1.0.0",
      *     title="Swagger ManhDanBlogs",
+=======
+     *     description="This is a sample Userstore server.",
+     *     version="1.0.0",
+     *     title="This is title",
+>>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
      *     termsOfService="http://swagger.io/terms/",
      *     @OA\Contact(
      *         email="apiteam@swagger.io"
@@ -31,6 +37,7 @@ class Controller extends BaseController
      *      url="http://127.0.0.1:8000/api/",
      *      description="Development Environment"
      *  )
+<<<<<<< HEAD
      *
      * @OA\Tag(
      *     name="Auth",
@@ -46,6 +53,129 @@ class Controller extends BaseController
      * )
      */
     
+=======
+     * @OA\Tag(
+     *     name="auth",
+     *     description="Operations about auth user",
+     *     @OA\ExternalDocumentation(
+     *         description="Find out more about store",
+     *         url="http://swagger.io"
+     *     )
+     * )
+     * * @OA\Tag(
+     *     name="Admin",
+     *     description="Operations about Admin",
+     *     @OA\ExternalDocumentation(
+     *         description="Find out more about store",
+     *         url="http://swagger.io"
+     *     )
+     * )
+     * @OA\Tag(
+     *     name="user",
+     *     description="Operations about user",
+     *     @OA\ExternalDocumentation(
+     *         description="Find out more about store",
+     *         url="http://swagger.io"
+     *     )
+     * )
+     */
+     /**
+     * @OA\Get(
+     *     path="/users",
+     *     tags={"user"},
+     *     summary="Get list user",
+     *     description="Returns a single new user.",
+     *     operationId="getListUser",
+     *     @OA\Parameter(
+     *         name="name",
+     *         in="query",
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @OA\JsonContent(
+     *              type="object",
+     *              @OA\Property(
+     *                  property="data",
+     *                  type="array",
+     *                  @OA\Items(
+     *                      type="object",
+     *                      example={
+     *                          "id": 1,
+     *                          "name": "ManhDan",
+     *                          "email": "danhuynh660@gmail.com",
+     *                      },
+     *                  )
+     *              ),
+     *              @OA\Property(
+     *                  property="links",
+     *                  type="object",
+     *                  example={
+     *                      "first": "http://127.0.0.1:8000/api/users?page=1",
+     *                      "last": "http://127.0.0.1:8000/api/users?page=1",
+     *                      "prev": null,
+     *                      "next": null,
+     *                  },
+     *              ),
+     *               @OA\Property(
+     *                  property="meta",
+     *                  type="object",
+     *                  @OA\Property(
+     *                      property="current_page",
+     *                      type="integer",
+     *                      example=1
+     *                  ),
+     *                  @OA\Property(
+     *                      property="from",
+     *                      type="integer",
+     *                      example=1
+     *                  ),
+     *                  @OA\Property(
+     *                      property="last_page",
+     *                      type="integer",
+     *                      example=1
+     *                  ),
+     *                  @OA\Property(
+     *                      property="links",
+     *                      type="array",
+     *                      @OA\Items(
+     *                          type="object",
+     *                          example={
+     *                              "url": "http://127.0.0.1:8000/api/users?page=1",
+     *                              "label": "http://127.0.0.1:8000/api/users?page=1",
+     *                              "active": null,
+     *                          },
+     *                      )
+     *                  ),
+     *                  @OA\Property(
+     *                      property="path",
+     *                      type="string",
+     *                      example="http://127.0.0.1:8000/api/users"
+     *                  ),
+     *                  @OA\Property(
+     *                      property="per_page",
+     *                      type="integer",
+     *                      example=10
+     *                  ),
+     *                  @OA\Property(
+     *                      property="to",
+     *                      type="integer",
+     *                      example=10
+     *                  ),
+     *                  @OA\Property(
+     *                      property="total",
+     *                      type="integer",
+     *                      example=10
+     *                  ),
+     *              ),
+     *          )
+     *      ),
+     * )
+     */
+>>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
 }

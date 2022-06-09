@@ -11,6 +11,43 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable, SoftDeletes;
+     /** @OA\Schema(
+     *     schema="User",
+     *     required={ "first_name", "last_name", "email", "password"},
+     *     
+     *     @OA\Property(
+     *         property="first_name",
+     *         type="string"
+     *     ),
+     *      @OA\Property(
+     *         property="last_name",
+     *         type="string"
+     *     ),
+     *     @OA\Property(
+     *         property="email",
+     *         type="string"
+     *     ),
+     *     @OA\Property(
+     *         property="email_verified_at",
+     *         type="string",
+     *         format="date-time"
+     *     ),
+     *     @OA\Property(
+     *         property="password",
+     *         type="string"
+     *     ),
+     *     @OA\Property(
+     *         property="created_at",
+     *         type="string",
+     *         format="date-time"
+     *     ),
+     *     @OA\Property(
+     *         property="updated_at",
+     *         type="string",
+     *         format="date-time"
+     *     )
+     * ),
+     */
     /**
      * The attributes that are mass assignable.
      *

@@ -1,8 +1,13 @@
 {
     "openapi": "3.0.0",
     "info": {
+<<<<<<< HEAD
         "title": "Swagger ManhDanBlogs",
         "description": "This is a sample Userstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).",
+=======
+        "title": "This is title",
+        "description": "This is a sample Userstore server.",
+>>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "email": "apiteam@swagger.io"
@@ -20,6 +25,7 @@
         }
     ],
     "paths": {
+<<<<<<< HEAD
         "/login": {
             "post": {
                 "tags": [
@@ -42,6 +48,20 @@
                         "in": "query",
                         "description": "The password for login",
                         "required": true,
+=======
+        "/users": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get list user",
+                "description": "Returns a single new user.",
+                "operationId": "getListUser",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+>>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
                         "schema": {
                             "type": "string"
                         }
@@ -49,6 +69,7 @@
                 ],
                 "responses": {
                     "200": {
+<<<<<<< HEAD
                         "description": "successful operation"
                     }
                 }
@@ -111,6 +132,82 @@
                 "responses": {
                     "200": {
                         "description": "successful operation"
+=======
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "example": {
+                                                    "id": 1,
+                                                    "name": "ManhDan",
+                                                    "email": "danhuynh660@gmail.com"
+                                                }
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "example": {
+                                                "first": "http://127.0.0.1:8000/api/users?page=1",
+                                                "last": "http://127.0.0.1:8000/api/users?page=1",
+                                                "prev": null,
+                                                "next": null
+                                            }
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "from": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "last_page": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "links": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "example": {
+                                                            "url": "http://127.0.0.1:8000/api/users?page=1",
+                                                            "label": "http://127.0.0.1:8000/api/users?page=1",
+                                                            "active": null
+                                                        }
+                                                    }
+                                                },
+                                                "path": {
+                                                    "type": "string",
+                                                    "example": "http://127.0.0.1:8000/api/users"
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "to": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "total": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+>>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
                     }
                 }
             }
@@ -118,6 +215,7 @@
     },
     "components": {
         "schemas": {
+<<<<<<< HEAD
             "blogs": {
                 "properties": {
                     "id": {
@@ -361,10 +459,33 @@
                     },
                     "email": {
                         "type": "string"
+=======
+            "User": {
+                "required": [
+                    "first_name",
+                    "last_name",
+                    "email",
+                    "password"
+                ],
+                "properties": {
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "email_verified_at": {
+                        "type": "string",
+                        "format": "date-time"
+>>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
                     },
                     "password": {
                         "type": "string"
                     },
+<<<<<<< HEAD
                     "deleted_at": {
                         "type": "string",
                         "format": "date-time"
@@ -390,6 +511,13 @@
                         "format": "int64"
                     },
                     "delete_at": {
+=======
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+>>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
                         "type": "string",
                         "format": "date-time"
                     }
@@ -400,6 +528,7 @@
     },
     "tags": [
         {
+<<<<<<< HEAD
             "name": "Auth",
             "description": "Auth API"
         },
@@ -410,6 +539,30 @@
         {
             "name": "User",
             "description": "User Api"
+=======
+            "name": "auth",
+            "description": "Operations about auth user",
+            "externalDocs": {
+                "description": "Find out more about store",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "Admin",
+            "description": "Operations about Admin",
+            "externalDocs": {
+                "description": "Find out more about store",
+                "url": "http://swagger.io"
+            }
+        },
+        {
+            "name": "user",
+            "description": "Operations about user",
+            "externalDocs": {
+                "description": "Find out more about store",
+                "url": "http://swagger.io"
+            }
+>>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
         }
     ]
 }
