@@ -26,4 +26,40 @@ class Blog extends Model
     {
         return $this->hasOne('App\Category', 'id', 'category_id');
     }
+    /** @OA\Schema(
+     *     schema="blogs",
+     *     @OA\Property(
+     *         property="id",
+     *         type="integer",
+     *         format="int64"
+     *     ),@OA\Property(
+     *         property="category_id",
+     *         type="integer",
+     *         format="int64"
+     *     ),
+     *     @OA\Property(
+     *          property="image",
+     *         type="string",
+     *     ),
+     *     @OA\Property(
+     *         property="title",
+     *         type="string",
+     *     ),
+     * @OA\Property(
+     *         property="tags",
+     *         type="string",
+     *     ),@OA\Property(
+     *         property="description",
+     *         type="text",
+     *     ),@OA\Property(
+     *         property="short_description",
+     *         type="text",
+     *     ),
+     *     @OA\Property(
+     *         property="deleted_at",
+     *         type="string",
+     *         format="date-time"
+     *     ),
+     * ),
+     */
 }

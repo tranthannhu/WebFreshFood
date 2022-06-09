@@ -16,6 +16,40 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
+      /** @OA\Schema(
+     *     schema="user",
+     *     @OA\Property(
+     *         property="id",
+     *         type="integer",
+     *         format="int64"
+     *     ),
+     *     @OA\Property(
+     *         property="first_name",
+     *         type="string"
+     *     ),
+     *         @OA\Property(
+     *         property="last_name",
+     *         type="string"
+     *     ),
+     *     @OA\Property(
+     *         property="email",
+     *         type="string"
+     *     ),
+     *     @OA\Property(
+     *         property="password",
+     *         type="string"
+     *     ),
+     * @OA\Property(
+     *         property="deleted_at",
+     *         type="string",
+     *         format="date-time"
+     *     ),
+     *     @OA\Property(
+     *         property="role",
+     *         type="string"
+     *     ),
+     * ),
+     */
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password'
     ];

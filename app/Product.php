@@ -34,6 +34,71 @@ class Product extends Model
     {
         return $this->hasOne('App\Category', 'id', 'category_id');
     }
-
+/** @OA\Schema(
+     *     schema="products",
+     *     @OA\Property(
+     *         property="id",
+     *         type="integer",
+     *         format="int64"
+     *     ),
+     *     @OA\Property(
+     *          property="category_id",
+     *         type="integer",
+     *         format="int64"
+     *     ),
+     *     @OA\Property(
+     *         property="product_name",
+     *         type="string",
+     *     ),
+     * @OA\Property(
+     *         property="sku",
+     *         type="string",
+     *     ),
+     * @OA\Property(
+     *         property="origin_price",
+     *         type="double",
+     *     ),
+     * @OA\Property(
+     *         property="sell_price",
+     *         type="double",
+     *     ),
+     *  @OA\Property(
+     *         property="discount_percent",
+     *         type="integer",
+     *     ),
+     *  @OA\Property(
+     *         property="discount_price",
+     *         type="integer",
+     *     ),
+     *  @OA\Property(
+     *         property="description",
+     *         type="text",
+     *     ), @OA\Property(
+     *         property="short_description",
+     *         type="text",
+     *     ), @OA\Property(
+     *         property="size",
+     *         type="string",
+     *     ), @OA\Property(
+     *         property="color",
+     *         type="string",
+     *     ), @OA\Property(
+     *         property="quantity",
+     *         type="integer",
+     *     ),@OA\Property(
+     *         property="quantity_sell",
+     *         type="integer",
+     *     ),
+     * @OA\Property(
+     *         property="image",
+     *         type="string",
+     *     ),
+     *     @OA\Property(
+     *         property="deleted_at",
+     *         type="string",
+     *         format="date-time"
+     *     ),
+     * ),
+     */
 
 }

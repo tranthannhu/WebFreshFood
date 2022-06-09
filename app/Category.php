@@ -23,4 +23,30 @@ class Category extends Model
     {
         return $this->hasMany('App\Product');
     }
+    /** @OA\Schema(
+     *     schema="categories",
+     *     @OA\Property(
+     *         property="id",
+     *         type="integer",
+     *         format="int64"
+     *     ),
+     *     @OA\Property(
+     *          property="category_name",
+     *         type="string",
+     *     ),
+     *     @OA\Property(
+     *         property="icon",
+     *         type="string",
+     *     ),
+     * @OA\Property(
+     *         property="description",
+     *         type="string",
+     *     ),
+     *     @OA\Property(
+     *         property="deleted_at",
+     *         type="string",
+     *         format="date-time"
+     *     ),
+     * ),
+     */
 }

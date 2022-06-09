@@ -10,10 +10,104 @@ use App\User;
 class AuthController extends BaseController
 {
     /**
+     * @OA\Post(
+     *     path="/login",
+     *     tags={"User"},
+     *     summary="Logs user into the system",
+     *     operationId="login",
+     *     @OA\Parameter(
+     *         name="email",
+     *         in="query",
+     *          description="The email for login",
+     *          required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),@OA\Parameter(
+     *         name="password",
+     *         in="query",
+     *          description="The password for login",
+     *          required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *         
+     *          ),
+     * )
+     * 
+     * 
+     */
+    /**
+     * @OA\Post(
+     *     path="/signup",
+     *     tags={"User"},
+     *     summary="register a new user - Đang lỗi swagger",
+     *     operationId="signup",
+     *     @OA\Parameter(
+     *         name="email",
+     *         in="query",
+     *          description="The email for login",
+     *          required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     * @OA\Parameter(
+     *         name="first_name",
+     *         in="query",
+     *          description="The first name",
+     *          required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     * @OA\Parameter(
+     *         name="last_name",
+     *         in="query",
+     *          description="The last name",
+     *          required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     * @OA\Parameter(
+     *         name="password",
+     *         in="query",
+     *          description="The password for login",
+     *          required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     * @OA\Parameter(
+     *         name="password_confirmation",
+     *         in="query",
+     *          description="The password_confirmation",
+     *          required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *         
+     *          ),
+     * )
+     * 
+     * 
+     */
+
+    /**
      * Create a new AuthController instance.
      *
      * @return void
      */
+    
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login', 'signup']]);
@@ -38,7 +132,7 @@ class AuthController extends BaseController
     public function signup(SignUpRequest $request)
     {
         $user = User::create($request->all());
-        return $this->login($request);
+        return response()->json(['message' => 'register success'], 200);
     }
 
     /**
@@ -86,7 +180,7 @@ class AuthController extends BaseController
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user()->name
+            'user' => auth()->user()->last_name
          ]);
     }
 }

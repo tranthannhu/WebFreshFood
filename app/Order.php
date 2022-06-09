@@ -30,4 +30,55 @@ class Order extends Model
     {
         return $this->hasMany('App\OrderDetail');
     }
+    /** @OA\Schema(
+     *     schema="orders",
+     *     @OA\Property(
+     *         property="id",
+     *         type="integer",
+     *         format="int64"
+     *     ),  @OA\Property(
+     *         property="user_id",
+     *         type="integer",
+     *         format="int64"
+     *     ),
+     * @OA\Property(
+     *         property="email",
+     *         type="string",
+     *     ),@OA\Property(
+     *         property="shipping_country",
+     *         type="string",
+     *     ),@OA\Property(
+     *         property="shipping_first_name",
+     *         type="string",
+     *     ),@OA\Property(
+     *         property="shipping_last_name",
+     *         type="string",
+     *     ),@OA\Property(
+     *         property="shipping_address",
+     *         type="string",
+     *     ),@OA\Property(
+     *         property="shipping_optional",
+     *         type="string",
+     *     ),@OA\Property(
+     *         property="shipping_city",
+     *         type="string",
+     *     ),@OA\Property(
+     *         property="shipping_postal_code",
+     *         type="string",
+     *     ),
+     *  @OA\Property(
+     *         property="status",
+     *         type="integer",
+     *     ),
+     *     @OA\Property(
+     *          property="amount",
+     *         type="double",
+     *     ),
+     *     @OA\Property(
+     *         property="deleted_at",
+     *         type="string",
+     *         format="date-time"
+     *     ),
+     * ),
+     */
 }
