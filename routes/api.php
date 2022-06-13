@@ -64,6 +64,8 @@ Route::get('public/categories/{category}', 'User\CategoryController@show');
 Route::get('public/products', 'User\ProductController@index');
 Route::get('public/lastestproducts', 'User\ProductController@lastestProduct');
 Route::get('public/products/{product}', 'User\ProductController@show');
+Route::post('upload', 'ImageUploadController@store');
+Route::get('upload/{filename}', 'ImageUploadController@displayImage')->name('image.displayImage');
 //
 //Route::group([
 //
