@@ -1,13 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-<<<<<<< HEAD
         "title": "Swagger ManhDanBlogs",
         "description": "This is a sample Userstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).",
-=======
-        "title": "This is title",
-        "description": "This is a sample Userstore server.",
->>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "email": "apiteam@swagger.io"
@@ -25,30 +20,6 @@
         }
     ],
     "paths": {
-<<<<<<< HEAD
-        "/login": {
-            "post": {
-                "tags": [
-                    "User"
-                ],
-                "summary": "Logs user into the system",
-                "operationId": "login",
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "query",
-                        "description": "The email for login",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "password",
-                        "in": "query",
-                        "description": "The password for login",
-                        "required": true,
-=======
         "/users": {
             "get": {
                 "tags": [
@@ -61,7 +32,6 @@
                     {
                         "name": "name",
                         "in": "query",
->>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
                         "schema": {
                             "type": "string"
                         }
@@ -69,70 +39,6 @@
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "successful operation"
-                    }
-                }
-            }
-        },
-        "/signup": {
-            "post": {
-                "tags": [
-                    "User"
-                ],
-                "summary": "register a new user - Đang lỗi swagger",
-                "operationId": "signup",
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "query",
-                        "description": "The email for login",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "first_name",
-                        "in": "query",
-                        "description": "The first name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "last_name",
-                        "in": "query",
-                        "description": "The last name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "password",
-                        "in": "query",
-                        "description": "The password for login",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "password_confirmation",
-                        "in": "query",
-                        "description": "The password_confirmation",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-=======
                         "description": "successful operation",
                         "content": {
                             "application/json": {
@@ -207,7 +113,6 @@
                                 }
                             }
                         }
->>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
                     }
                 }
             }
@@ -215,251 +120,6 @@
     },
     "components": {
         "schemas": {
-<<<<<<< HEAD
-            "blogs": {
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "category_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "image": {
-                        "type": "string"
-                    },
-                    "title": {
-                        "type": "string"
-                    },
-                    "tags": {
-                        "type": "string"
-                    },
-                    "description": {
-                        "type": "text"
-                    },
-                    "short_description": {
-                        "type": "text"
-                    },
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "type": "object"
-            },
-            "categories": {
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "category_name": {
-                        "type": "string"
-                    },
-                    "icon": {
-                        "type": "string"
-                    },
-                    "description": {
-                        "type": "string"
-                    },
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "type": "object"
-            },
-            "orders": {
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "user_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "email": {
-                        "type": "string"
-                    },
-                    "shipping_country": {
-                        "type": "string"
-                    },
-                    "shipping_first_name": {
-                        "type": "string"
-                    },
-                    "shipping_last_name": {
-                        "type": "string"
-                    },
-                    "shipping_address": {
-                        "type": "string"
-                    },
-                    "shipping_optional": {
-                        "type": "string"
-                    },
-                    "shipping_city": {
-                        "type": "string"
-                    },
-                    "shipping_postal_code": {
-                        "type": "string"
-                    },
-                    "status": {
-                        "type": "integer"
-                    },
-                    "amount": {
-                        "type": "double"
-                    },
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "type": "object"
-            },
-            "orders_detail": {
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "order_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "product_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "size": {
-                        "type": "string"
-                    },
-                    "color": {
-                        "type": "string"
-                    },
-                    "quantity": {
-                        "type": "integer"
-                    },
-                    "price": {
-                        "type": "double"
-                    },
-                    "amount": {
-                        "type": "double"
-                    },
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "type": "object"
-            },
-            "products": {
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "category_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "product_name": {
-                        "type": "string"
-                    },
-                    "sku": {
-                        "type": "string"
-                    },
-                    "origin_price": {
-                        "type": "double"
-                    },
-                    "sell_price": {
-                        "type": "double"
-                    },
-                    "discount_percent": {
-                        "type": "integer"
-                    },
-                    "discount_price": {
-                        "type": "integer"
-                    },
-                    "description": {
-                        "type": "text"
-                    },
-                    "short_description": {
-                        "type": "text"
-                    },
-                    "size": {
-                        "type": "string"
-                    },
-                    "color": {
-                        "type": "string"
-                    },
-                    "quantity": {
-                        "type": "integer"
-                    },
-                    "quantity_sell": {
-                        "type": "integer"
-                    },
-                    "image": {
-                        "type": "string"
-                    },
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "type": "object"
-            },
-            "product_comments": {
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "user_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "product_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "customer_name": {
-                        "type": "string"
-                    },
-                    "customer_email": {
-                        "type": "string"
-                    },
-                    "rating": {
-                        "type": "integer"
-                    },
-                    "review_title": {
-                        "type": "string"
-                    },
-                    "body_title": {
-                        "type": "string"
-                    },
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "type": "object"
-            },
-            "user": {
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "first_name": {
-                        "type": "string"
-                    },
-                    "last_name": {
-                        "type": "string"
-                    },
-                    "email": {
-                        "type": "string"
-=======
             "User": {
                 "required": [
                     "first_name",
@@ -480,44 +140,15 @@
                     "email_verified_at": {
                         "type": "string",
                         "format": "date-time"
->>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
                     },
                     "password": {
                         "type": "string"
                     },
-<<<<<<< HEAD
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "role": {
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "user_wishlist": {
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "product_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "user_id": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "delete_at": {
-=======
                     "created_at": {
                         "type": "string",
                         "format": "date-time"
                     },
                     "updated_at": {
->>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
                         "type": "string",
                         "format": "date-time"
                     }
@@ -528,18 +159,6 @@
     },
     "tags": [
         {
-<<<<<<< HEAD
-            "name": "Auth",
-            "description": "Auth API"
-        },
-        {
-            "name": "Admin",
-            "description": "Admin api"
-        },
-        {
-            "name": "User",
-            "description": "User Api"
-=======
             "name": "auth",
             "description": "Operations about auth user",
             "externalDocs": {
@@ -562,7 +181,6 @@
                 "description": "Find out more about store",
                 "url": "http://swagger.io"
             }
->>>>>>> 0df665b107381768e4743b2ff4f99165a554086f
         }
     ]
 }
