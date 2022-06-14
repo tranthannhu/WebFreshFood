@@ -8,7 +8,11 @@ use App\Http\Requests\ProductUpdateRequest;
 use App\Product;
 use App\ProductComment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+
 use App\Http\Controllers\Controller;
+use File;
 
 class ProductController extends BaseController
 {
@@ -20,8 +24,6 @@ class ProductController extends BaseController
     public function index()
     {
         $products = Product::with('category')->get();
-
-
         return $this->sendResponse($products->toArray(), 'Products retrieved successfully.');
     }
 
@@ -31,13 +33,35 @@ class ProductController extends BaseController
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductStoreRequest $request)
-    {
-        //
-        $input = $request->all();
+    // public function store(ProductStoreRequest $request)
+    // {
+    //     //
+    //     $input = $request->all();
+    //     $product = Product::create($input);
+
+    //     return $this->sendResponse($product->toArray(), 'Product created successfully.');
+    // }
+    public function store(ProductStoreRequest $request){
+        // $product = Product::create($request->all());
+        $input=$request->except('image');
+
+        $this->validate($request,[
+            'image' => 'required|mimes:png,jpeg,jpg,pdf|max:2048',
+        ]);
+        if ($files = $request->file('image')) {
+
+            $file = Storage::disk('local')->put('images', $files);
+
+            // $file = $files->store('public/documents');
+            // // var_dump($file);
+            $input['image']= $file;
+            
+        }
         $product = Product::create($input);
 
-        return $this->sendResponse($product->toArray(), 'Product created successfully.');
+        // $product = Product::create($request->all());
+
+            return $this->sendResponse($product->toArray(), 'Product created successfully.');
     }
 
     /**
@@ -46,16 +70,34 @@ class ProductController extends BaseController
      * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
-    {
-        //
-//        $category = Category::find($id);
+//     public function show(Product $product)
+//     {
+//         if (is_null($product)) {
+//             return $this->sendError('Product not found.');
+//         }
 
+//         return $this->sendResponse($product->toArray(), 'Product retrieved successfully.');
+//     }
+    public function show(Product $product){
         if (is_null($product)) {
             return $this->sendError('Product not found.');
         }
-
-        return $this->sendResponse($product->toArray(), 'Product retrieved successfully.');
+        // dd($product);
+        $img = $product->getOriginal('image');
+        // dd($img);
+        $path = storage_path('app/' .$img);
+$file = File::get($path);
+$type = File::mimeType($path);
+$response = Response::make($file, 200);
+$response->header("Content-Type", $type);
+return $response;
+return response()->json([
+	'image' => $response,
+	'products' => [
+		$product
+	],
+]);
+        // return $this->sendResponse([$product->toArray(), response()->file($path)], 'Product retrieved successfully.');
     }
 
     /**
