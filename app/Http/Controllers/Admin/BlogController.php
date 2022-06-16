@@ -6,6 +6,7 @@ use App\Blog;
 use App\Http\Requests\BlogStoreRequest;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class BlogController extends BaseController
@@ -30,15 +31,28 @@ class BlogController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function store(BlogStoreRequest $request)
+    // {
+    //     //
+    //     $input = $request->all();
+    //     $blog = Blog::create($input);
+
+    //     return $this->sendResponse($blog->toArray(), 'Blog created successfully.');
+    // }
     public function store(BlogStoreRequest $request)
     {
-        //
-        $input = $request->all();
-        $blog = Blog::create($input);
+        $input=$request->except('image');
 
+        $this->validate($request,[
+            'image' => 'required|mimes:png,jpeg,jpg,pdf|max:2048',
+        ]);
+        if ($files = $request->file('image')) {
+            $file = Storage::disk('local')->put('images', $files);
+            $input['image']= $file;
+        }
+        $blog = Blog::create($input);
         return $this->sendResponse($blog->toArray(), 'Blog created successfully.');
     }
-
     /**
      * Display the specified resource.
      *

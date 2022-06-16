@@ -42,7 +42,6 @@ class ProductController extends BaseController
     //     return $this->sendResponse($product->toArray(), 'Product created successfully.');
     // }
     public function store(ProductStoreRequest $request){
-        // $product = Product::create($request->all());
         $input=$request->except('image');
 
         $this->validate($request,[
@@ -51,17 +50,12 @@ class ProductController extends BaseController
         if ($files = $request->file('image')) {
 
             $file = Storage::disk('local')->put('images', $files);
-
-            // $file = $files->store('public/documents');
-            // // var_dump($file);
             $input['image']= $file;
             
         }
         $product = Product::create($input);
 
-        // $product = Product::create($request->all());
-
-            return $this->sendResponse($product->toArray(), 'Product created successfully.');
+        return $this->sendResponse($product->toArray(), 'Product created successfully.');
     }
 
     /**
