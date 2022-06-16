@@ -25,15 +25,15 @@ class ProductUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            'category_id' => 'required',
-            'product_name' => 'required',
-            'sku' => 'required',
-            'origin_price' => 'required',
-            'sell_price' => 'required',
-            'description' => 'required',
-            'short_description' => 'required',
-            'quantity' => 'required',
+            // //
+            // 'category_id' => 'required',
+            // 'product_name' => 'required',
+            // 'sku' => 'required',
+            // 'origin_price' => 'required',
+            // 'sell_price' => 'required',
+            // 'description' => 'required',
+            // 'short_description' => 'required',
+            // 'quantity' => 'required',
         ];
     }
 }

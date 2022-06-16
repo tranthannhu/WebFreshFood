@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class BlogUpdateRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class BlogUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +25,12 @@ class BlogUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            // 'category_id' => 'required',
+            // 'image' => 'required',
+            // 'title' => 'required',
+            // 'tags' => 'required',
+            // 'description' => 'required',
+            // 'short_description' => 'required',
         ];
     }
 }

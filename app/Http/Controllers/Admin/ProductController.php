@@ -64,35 +64,35 @@ class ProductController extends BaseController
      * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
-//     public function show(Product $product)
-//     {
-//         if (is_null($product)) {
-//             return $this->sendError('Product not found.');
-//         }
-
-//         return $this->sendResponse($product->toArray(), 'Product retrieved successfully.');
-//     }
-    public function show(Product $product){
+    public function show(Product $product)
+    {
         if (is_null($product)) {
             return $this->sendError('Product not found.');
         }
-        // dd($product);
-        $img = $product->getOriginal('image');
-        // dd($img);
-        $path = storage_path('app/' .$img);
-$file = File::get($path);
-$type = File::mimeType($path);
-$response = Response::make($file, 200);
-$response->header("Content-Type", $type);
-return $response;
-return response()->json([
-	'image' => $response,
-	'products' => [
-		$product
-	],
-]);
-        // return $this->sendResponse([$product->toArray(), response()->file($path)], 'Product retrieved successfully.');
+
+        return $this->sendResponse($product->toArray(), 'Product retrieved successfully.');
     }
+//     public function show(Product $product){
+//         if (is_null($product)) {
+//             return $this->sendError('Product not found.');
+//         }
+//         // dd($product);
+//         $img = $product->getOriginal('image');
+//         // dd($img);
+//         $path = storage_path('app/' .$img);
+// $file = File::get($path);
+// $type = File::mimeType($path);
+// $response = Response::make($file, 200);
+// $response->header("Content-Type", $type);
+// return $response;
+// return response()->json([
+// 	'image' => $response,
+// 	'products' => [
+// 		$product
+// 	],
+// ]);
+//         // return $this->sendResponse([$product->toArray(), response()->file($path)], 'Product retrieved successfully.');
+//     }
 
     /**
      * Update the specified resource in storage.
@@ -101,10 +101,19 @@ return response()->json([
      * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductUpdateRequest $request, Product $product)
+    public function updateProduct(ProductUpdateRequest $request, Product $product)
     {
         //
-        $input = $request->all();
+        // $input = $request->all();
+        $input=$request->except('image');
+
+        $this->validate($request,[
+            'image' => 'required|mimes:png,jpeg,jpg,pdf|max:2048',
+        ]);
+        if ($files = $request->file('image')) {
+            $file = Storage::disk('local')->put('images', $files);
+            $input['image']= $file;
+        }
         $product = Product::updateOrCreate(
             ['id' => $product->id],
             $input

@@ -40,7 +40,9 @@ Route::middleware(['auth:api', 'api.role:ADMIN'])->group(function () {
     // -Admin: Danh mục sản phẩm
     Route::resource('categories', 'Admin\CategoryController')->except(['create', 'edit']);
     Route::resource('products', 'Admin\ProductController')->except(['create', 'edit']);
+    Route::post('products/{product}', 'Admin\ProductController@updateProduct');
     Route::resource('blogs', 'Admin\BlogController')->except(['create', 'edit']);
+    Route::post('blogs/{blog}', 'Admin\BlogController@updateBlog');
     Route::resource('users', 'Admin\UserController')->only(['index']);
     Route::get('orders', 'Admin\OrderController@index');
 

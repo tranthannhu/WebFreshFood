@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Blog;
 use App\Http\Requests\BlogStoreRequest;
+use App\Http\Requests\BlogUpdateRequest;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+
 use Illuminate\Support\Facades\Storage;
 
 
@@ -73,10 +76,18 @@ class BlogController extends BaseController
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(BlogStoreRequest $request, Blog $blog)
+    public function updateBlog(BlogUpdateRequest $request, Blog $blog)
     {
         //
-        $input = $request->all();
+        $input=$request->except('image');
+
+        $this->validate($request,[
+            'image' => 'required|mimes:png,jpeg,jpg,pdf|max:2048',
+        ]);
+        if ($files = $request->file('image')) {
+            $file = Storage::disk('local')->put('images', $files);
+            $input['image']= $file;
+        }
         $blog = Blog::updateOrCreate(
             ['id' => $blog->id],
             $input
