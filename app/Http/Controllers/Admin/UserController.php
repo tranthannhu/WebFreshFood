@@ -17,10 +17,16 @@ class UserController extends BaseController
     
     public function index()
     {
-        $users = User::all();
+        $users = User::where('role', '!=', 'ADMIN')->get();
 
 
         return $this->sendResponse($users->toArray(), 'Users retrieved successfully.');
+    }
+    public function lastestUser(User $user)
+    {
+        //
+        $user = User::where('role', '!=', 'ADMIN')->orderBy('id', 'desc')->take(5)->get();
+        return $this->sendResponse($user->toArray(), '5 lastest users retrieved successfully.');
     }
 
     /**

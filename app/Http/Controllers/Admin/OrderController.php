@@ -22,7 +22,12 @@ class OrderController extends BaseController
 
         return $this->sendResponse($orders->toArray(), 'Orders retrieved successfully.');
     }
-
+    public function lastestOrder(Order $order)
+    {
+        //
+        $order = Order::orderBy('id', 'desc')->take(5)->get();
+        return $this->sendResponse($order->toArray(), '5 lastest order retrieved successfully.');
+    }
     /**
      * Store a newly created resource in storage.
      *

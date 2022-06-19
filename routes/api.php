@@ -44,7 +44,10 @@ Route::middleware(['auth:api', 'api.role:ADMIN'])->group(function () {
     Route::resource('blogs', 'Admin\BlogController')->except(['create', 'edit']);
     Route::post('blogs/{blog}', 'Admin\BlogController@updateBlog');
     Route::resource('users', 'Admin\UserController')->only(['index']);
+    Route::get('lastusers', 'Admin\UserController@lastestUser');
+
     Route::get('orders', 'Admin\OrderController@index');
+    Route::get('lastorders', 'Admin\OrderController@lastestOrder');
 
     Route::get('products/comments/{product}', 'Admin\ProductController@comments');
     Route::delete('products/comments/delete/{productComment}', 'Admin\ProductController@deleteComment');
