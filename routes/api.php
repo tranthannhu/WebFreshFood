@@ -21,7 +21,7 @@ Route::get('check', function(){
 });
 
 Route::post('login', 'AuthController@login');
-Route::post('logout', 'AuthController@logout');
+Route::get('logout', 'AuthController@logout');
 Route::post('signup', 'AuthController@signup');
 
 
@@ -61,6 +61,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('wishlist/{product}', 'User\ProductController@addToWishLish');
     Route::post('orders', 'User\OrderController@store');
     Route::post('me', 'AuthController@me');
+    Route::post('updateprofile', 'AuthController@updateProfile');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
 });

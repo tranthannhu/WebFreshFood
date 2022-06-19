@@ -28,13 +28,13 @@ class ProductStoreRequest extends FormRequest
             //
             'category_id' => 'required',
             'product_name' => 'required',
-            'sku' => 'required',
+            // 'sku' => 'required',
             'origin_price' => 'required',
             'sell_price' => 'required',
-            'sku' => 'required',
+            // 'sku' => 'required',
             'description' => 'required',
             'short_description' => 'required',
-            'quantity' => 'required',
+            // 'quantity' => 'required',
         ];
     }
 }

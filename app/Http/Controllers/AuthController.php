@@ -145,6 +145,18 @@ class AuthController extends BaseController
         return response()->json(auth()->user());
     }
 
+    
+    public function updateProfile(Request $request){
+        $user = auth() -> user();
+        $user -> first_name = $request['first_name'];
+        $user -> last_name = $request['last_name'];
+        $user -> email = $request['email'];
+        $user -> password = $request['password'];
+        $user -> save();
+        return response()->json(auth()->user());
+
+        // $user->first_name = $this->
+    }
     /**
      * Log the user out (Invalidate the token).
      *
