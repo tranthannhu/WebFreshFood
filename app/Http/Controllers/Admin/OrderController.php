@@ -34,6 +34,15 @@ class OrderController extends BaseController
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+    public function changeStatus(Request $request, Order $order)
+    {
+        $request->only('status');
+        // dd($order ->id);
+        $status = Order::where('id', $order -> id)->update(
+            ['status' => $request->status]
+        );
+        return $this->sendResponse($status, 'Change status successfully.');
+    }
     public function store(Request $request)
     {
         //

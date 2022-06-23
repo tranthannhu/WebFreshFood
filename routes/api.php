@@ -48,6 +48,8 @@ Route::middleware(['auth:api', 'api.role:ADMIN'])->group(function () {
 
     Route::get('orders', 'Admin\OrderController@index');
     Route::get('lastorders', 'Admin\OrderController@lastestOrder');
+    Route::post('changestatus/{order}', 'Admin\OrderController@ChangeStatus');
+
 
     Route::get('products/comments/{product}', 'Admin\ProductController@comments');
     Route::delete('products/comments/delete/{productComment}', 'Admin\ProductController@deleteComment');

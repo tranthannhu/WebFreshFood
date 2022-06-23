@@ -34,7 +34,7 @@ class OrderController extends BaseController
         //
         $request->merge([
             'user_id' => Auth::id(),
-            'status' => 1
+            'status' => 0
         ]);
         $input = $request->all();
 //        dd($input);
