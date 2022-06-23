@@ -23,7 +23,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/apple.jpg',
+                'image1' => 'images/apple.jpg',
+                'image2' => 'images/apple2.jpg',
             ),
             array(
                 'category_id' => '1',
@@ -35,7 +36,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/orange.jpg',
+                'image1' => 'images/orange.jpg',
+                'image2' => 'images/orange2.jpg',
             ),
             array(
                 'category_id' => '1',
@@ -47,7 +49,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/banana.jpg',
+                'image1' => 'images/banana.jpg',
+                'image2' => 'images/banana2.jpg',
             ),
             array(
                 'category_id' => '1',
@@ -59,7 +62,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/grapes.jpg',
+                'image1' => 'images/grapes.jpg',
+                'image2' => 'images/grapes2.jpg',
             ),
             array(
                 'category_id' => '2',
@@ -71,7 +75,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/onion.jpg',
+                'image1' => 'images/onion.jpg',
+                'image2' => 'images/onion2.jpg',
             ),
             array(
                 'category_id' => '2',
@@ -83,7 +88,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/kale.jpg',
+                'image1' => 'images/kale.jpg',
+                'image2' => 'images/kale2.jpg',
             ),
             array(
                 'category_id' => '2',
@@ -95,7 +101,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/cabbage.jpg',
+                'image1' => 'images/cabbage.jpg',
+                'image2' => 'images/cabbage2.jpg',
             ),
             array(
                 'category_id' => '2',
@@ -107,7 +114,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/Asparagus.jpg',
+                'image1' => 'images/Asparagus.jpg',
+                'image2' => 'images/Asparagus2.jpg',
             ),
             // ----------------
             array(
@@ -120,7 +128,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/Beef.jpg',
+                'image1' => 'images/Beef.jpg',
+                'image2' => 'images/Beef2.jpg',
             ),
             array(
                 'category_id' => '6',
@@ -132,7 +141,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/Salmon.jpg',
+                'image1' => 'images/Salmon.jpg',
+                'image2' => 'images/Salmon2.jpg',
             ),
             array(
                 'category_id' => '6',
@@ -144,7 +154,8 @@ class ProductSeeder extends Seeder
 
                 The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass When the mountains, your home and your allies, and the great gods will labor, a ridiculous mouse will be born. As long as the cats, nor the compensation, the kids eu, any price, sem. No consequences for any mass. Until the foot is just, our customers or, bananas and not, the superhero needs, the bow. The pain itself is love, the pain of the customer. ',
                 'short_description' => 'The pain itself is love, the pain of the customer. Aeneas needs pain. Aeneas mass The mountains will labor with their allies, and their homes, and their great gods; Until then...',
-                'image' => 'images/Sausage.jpg',
+                'image1' => 'images/Sausage.jpg',
+                'image2' => 'images/Sausage2.jpg',
             ),
         ));
     }

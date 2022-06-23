@@ -24,7 +24,8 @@ class Product extends Model
         'color',
         'quantity',
         'quantity_sell',
-        'image',
+        'image1',
+        'image2',
     ];
 
     /**

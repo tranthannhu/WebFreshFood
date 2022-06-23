@@ -42,15 +42,22 @@ class ProductController extends BaseController
     //     return $this->sendResponse($product->toArray(), 'Product created successfully.');
     // }
     public function store(ProductStoreRequest $request){
-        $input=$request->except('image');
+        $input=$request->except('image1', 'image2');
 
         $this->validate($request,[
-            'image' => 'required|mimes:png,jpeg,jpg,pdf|max:2048',
+            'image1' => 'mimes:png,jpeg,jpg,pdf|max:2048',
+            'image2' => 'mimes:png,jpeg,jpg,pdf|max:2048',
         ]);
-        if ($files = $request->file('image')) {
+        if ($files = $request->file('image1')) {
 
-            $file = Storage::disk('local')->put('images', $files);
-            $input['image']= $file;
+            $file1 = Storage::disk('local')->put('images1', $files);
+            $input['image1']= $file1;
+            
+        }
+        if ($files = $request->file('image2')) {
+
+            $file2 = Storage::disk('local')->put('images2', $files);
+            $input['image2']= $file2;
             
         }
         $product = Product::create($input);
@@ -105,14 +112,19 @@ class ProductController extends BaseController
     {
         //
         // $input = $request->all();
-        $input=$request->except('image');
+        $input=$request->except('image1', 'image2');
 
         $this->validate($request,[
-            'image' => 'required|mimes:png,jpeg,jpg,pdf|max:2048',
+            'image1' => 'mimes:png,jpeg,jpg,pdf|max:2048',
+            'image2' => 'mimes:png,jpeg,jpg,pdf|max:2048',
         ]);
-        if ($files = $request->file('image')) {
-            $file = Storage::disk('local')->put('images', $files);
-            $input['image']= $file;
+        if ($files = $request->file('image1')) {
+            $file1 = Storage::disk('local')->put('images1', $files);
+            $input['image1']= $file1;
+        }
+        if ($files = $request->file('image2')) {
+            $file2 = Storage::disk('local')->put('images2', $files);
+            $input['image2']= $file2;
         }
         $product = Product::updateOrCreate(
             ['id' => $product->id],
