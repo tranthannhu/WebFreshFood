@@ -30,6 +30,10 @@ class Order extends Model
     {
         return $this->hasMany('App\OrderDetail');
     }
+    public function user()
+    {
+        return $this->hasOne('App\User');
+    }
     /** @OA\Schema(
      *     schema="orders",
      *     @OA\Property(

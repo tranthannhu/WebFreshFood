@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Database\Eloquent\Model;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
@@ -17,9 +17,7 @@ class UserController extends BaseController
     
     public function index()
     {
-        $users = User::where('role', '!=', 'ADMIN')->get();
-
-
+        $users = User::where('role', '!=', 'ADMIN')->with('orders')->get();
         return $this->sendResponse($users->toArray(), 'Users retrieved successfully.');
     }
     public function lastestUser(User $user)
