@@ -125,6 +125,15 @@ class ProductController extends BaseController
 
         return $this->sendResponse($wishList->toArray(), 'Add To wishlish successfully.');
     }
+
+    public function showWishLish()
+    {
+        $wishList = UserWishList::where([
+            ['user_id', Auth::id()]
+        ])->get();
+        return $this->sendResponse($wishList->toArray(), 'Show wish lish successfully');
+    }
+
     public function lastestProduct(Product $product)
     {
         //

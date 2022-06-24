@@ -65,6 +65,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('products/comments/{product}', 'User\ProductController@storeComment');
 //    Route::delete('products/comments/delete/{productComment}', 'Admin\ProductController@deleteComment');
     Route::get('wishlist/{product}', 'User\ProductController@addToWishLish');
+    Route::get('wishlist', 'User\ProductController@showWishLish');
     Route::post('orders', 'User\OrderController@store');
     Route::get('me', 'AuthController@me');
     Route::post('updateprofile', 'AuthController@updateProfile');
