@@ -49,6 +49,10 @@ Route::middleware(['auth:api', 'api.role:ADMIN'])->group(function () {
     Route::get('orders', 'Admin\OrderController@index');
     Route::get('lastorders', 'Admin\OrderController@lastestOrder');
     Route::post('changestatus/{order}', 'Admin\OrderController@ChangeStatus');
+    Route::get('revenuedaily', 'Admin\OrderController@totalRevenueDaily');
+    Route::get('revenueweekly', 'Admin\OrderController@totalRevenueWeekly');
+    Route::get('revenuemonthly', 'Admin\OrderController@totalRevenueMonthly');
+    Route::get('revenueyearly', 'Admin\OrderController@totalRevenueYearly');
 
 
     Route::get('products/comments/{product}', 'Admin\ProductController@comments');

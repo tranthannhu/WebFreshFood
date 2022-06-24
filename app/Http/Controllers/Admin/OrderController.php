@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Order;
+use DB;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -42,6 +44,66 @@ class OrderController extends BaseController
             ['status' => $request->status]
         );
         return $this->sendResponse($status, 'Change status successfully.');
+    }
+
+    // Tổng doanh thu
+    public function totalRevenueDaily()
+    {
+        $date = Carbon::now()->subDays(60)->startOfDay();
+    return DB::table('orders')
+    ->where('orders.created_at', '>=', $date)
+    ->where('orders.status', '=', '1')
+    ->groupBy(DB::raw('DATE(orders.created_at)'))
+    ->orderBy('created_at', 'desc')
+    ->select(
+        DB::raw('DATE(orders.created_at) as date'),
+        DB::raw('SUM(orders.amount) as revenue'),
+        DB::raw('SUM(orders.status) as orders')
+    )->get();
+    }
+
+    public function totalRevenueWeekly()
+    {
+        $week = Carbon::now()->subWeeks(30)->startOfWeek();
+    return DB::table('orders')
+    ->where('orders.status', '=', '1')
+    ->where('orders.created_at', '>=', $week)
+    ->groupBy(DB::raw('WEEK(orders.created_at)'))
+    ->orderBy('created_at', 'desc')
+    ->select(
+        DB::raw('WEEK(orders.created_at) as week'),
+        DB::raw('SUM(orders.amount) as revenue'),
+        DB::raw('SUM(orders.status) as orders')
+    )->get();
+    }
+
+    public function totalRevenueMonthly()
+    {
+        $month = Carbon::now()->subMonths(11)->startOfMonth();
+    return DB::table('orders')
+    ->where('orders.created_at', '>=', $month)
+    ->where('orders.status', '=', '1')
+    ->groupBy(DB::raw('MONTH(orders.created_at)'))
+    ->orderBy('created_at', 'desc')
+    ->select(
+        DB::raw('MONTH(orders.created_at) as month'),
+        DB::raw('SUM(orders.amount) as revenue'),
+        DB::raw('SUM(orders.status) as orders')
+    )->get();
+    }
+
+    public function totalRevenueYearly()
+    {
+    return DB::table('orders')
+    ->where('orders.status', '=', '1')
+    ->groupBy(DB::raw('YEAR(orders.created_at)'))
+    ->orderBy('created_at', 'desc')
+    ->select(
+        DB::raw('YEAR(orders.created_at) as year'),
+        DB::raw('SUM(orders.amount) as revenue'),
+        DB::raw('SUM(orders.status) as orders')
+    )->get();
+
     }
     public function store(Request $request)
     {
