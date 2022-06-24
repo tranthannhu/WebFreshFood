@@ -40,6 +40,17 @@ class OrderController extends BaseController
 //        dd($input);
         $orderDetails = $input['order_details'];
 
+        foreach ($orderDetails as $orderDetail) {
+            $id = $orderDetail['product_id'];
+            $product = Product::find($id);
+            $product->quantity_sell += $orderDetail['quantity']; 
+            $quantity_sell = $product->quantity_sell;
+            $ok = Product::updateOrCreate(
+                ['id' => $id],
+                ['quantity_sell' => $quantity_sell]
+            );
+        }
+
         $amount = 0;
         foreach ($orderDetails as $orderDetail) {
             $product = Product::find($orderDetail['product_id']);
@@ -69,6 +80,8 @@ class OrderController extends BaseController
             $orderDetail['order_id'] = $order->id;
             OrderDetail::create($orderDetail);
         }
+
+
         return $this->sendResponse($order->toArray(), 'Order created successfully.');
     }
 
