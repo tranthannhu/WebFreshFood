@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,8 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('wishlist/{product}', 'User\ProductController@addToWishLish');
     Route::get('wishlist', 'User\ProductController@showWishLish');
     Route::post('orders', 'User\OrderController@store');
+    Route::post('vnpay_payment', 'User\OrderController@vnpay_payment');
+    Route::get('return', 'User\OrderController@return');
     Route::get('me', 'AuthController@me');
     Route::post('updateprofile', 'AuthController@updateProfile');
     Route::post('logout', 'AuthController@logout');

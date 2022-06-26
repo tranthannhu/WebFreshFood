@@ -125,7 +125,7 @@ class ProductController extends BaseController
 
         return $this->sendResponse($wishList->toArray(), 'Add To wishlish successfully.');
     }
-
+    
     public function showWishLish()
     {
         $wishList = UserWishList::where([
