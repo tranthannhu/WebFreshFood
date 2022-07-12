@@ -60,7 +60,7 @@ class OrderController extends BaseController
         DB::raw('date(orders.created_at) as date'),
         DB::raw('SUM(orders.amount) as revenue'),
         DB::raw('SUM(orders.status) as orders')
-    )->toSql();
+    )->get();
     }
 
     public function totalRevenueWeekly()
@@ -93,7 +93,7 @@ class OrderController extends BaseController
         DB::raw("DATE_PART('month', date(orders.created_at)) as month"),
         DB::raw('SUM(orders.amount) as revenue'),
         DB::raw('SUM(orders.status) as orders')
-    )->toSql();
+    )->get();
     }
 
     public function totalRevenueYearly()
