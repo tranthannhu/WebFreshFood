@@ -74,6 +74,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('updateprofile', 'AuthController@updateProfile');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
+    Route::post('reset', 'ResetPasswordController@sendEmail');
 });
 Route::get('public/categories', 'User\CategoryController@index');
 Route::get('public/categories/{category}', 'User\CategoryController@show');

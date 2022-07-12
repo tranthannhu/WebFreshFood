@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Week;
 
 class OrderController extends BaseController
 {
@@ -53,13 +54,13 @@ class OrderController extends BaseController
     return DB::table('orders')
     ->where('orders.created_at', '>=', $date)
     ->where('orders.status', '=', '1')
-    ->groupBy(DB::raw('DATE(orders.created_at)'))
-    ->orderBy('created_at', 'desc')
+    ->groupBy(DB::raw('date(orders.created_at)'))
+    ->orderBy('date', 'desc')
     ->select(
-        DB::raw('DATE(orders.created_at) as date'),
+        DB::raw('date(orders.created_at) as date'),
         DB::raw('SUM(orders.amount) as revenue'),
         DB::raw('SUM(orders.status) as orders')
-    )->get();
+    )->toSql();
     }
 
     public function totalRevenueWeekly()
@@ -68,13 +69,16 @@ class OrderController extends BaseController
     return DB::table('orders')
     ->where('orders.status', '=', '1')
     ->where('orders.created_at', '>=', $week)
-    ->groupBy(DB::raw('WEEK(orders.created_at)'))
-    ->orderBy('created_at', 'desc')
+    ->groupBy('week')
+    ->orderBy('week', 'desc')
+
     ->select(
-        DB::raw('WEEK(orders.created_at) as week'),
+        DB::raw("DATE_PART('week', date(orders.created_at)) as week"),
         DB::raw('SUM(orders.amount) as revenue'),
         DB::raw('SUM(orders.status) as orders')
-    )->get();
+        // EXTRACT(WEEK FROM TIMESTAMP  microposts.created_at)
+    )
+    ->get();
     }
 
     public function totalRevenueMonthly()
@@ -83,23 +87,23 @@ class OrderController extends BaseController
     return DB::table('orders')
     ->where('orders.created_at', '>=', $month)
     ->where('orders.status', '=', '1')
-    ->groupBy(DB::raw('MONTH(orders.created_at)'))
-    ->orderBy('created_at', 'desc')
+    ->groupBy('month')
+    ->orderBy('month', 'desc')
     ->select(
-        DB::raw('MONTH(orders.created_at) as month'),
+        DB::raw("DATE_PART('month', date(orders.created_at)) as month"),
         DB::raw('SUM(orders.amount) as revenue'),
         DB::raw('SUM(orders.status) as orders')
-    )->get();
+    )->toSql();
     }
 
     public function totalRevenueYearly()
     {
     return DB::table('orders')
     ->where('orders.status', '=', '1')
-    ->groupBy(DB::raw('YEAR(orders.created_at)'))
-    ->orderBy('created_at', 'desc')
+    ->groupBy('year')
+    ->orderBy('year', 'desc')
     ->select(
-        DB::raw('YEAR(orders.created_at) as year'),
+        DB::raw("DATE_PART('year', date(orders.created_at)) as year"),
         DB::raw('SUM(orders.amount) as revenue'),
         DB::raw('SUM(orders.status) as orders')
     )->get();
