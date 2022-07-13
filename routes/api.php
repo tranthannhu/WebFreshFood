@@ -56,7 +56,6 @@ Route::middleware(['auth:api', 'api.role:ADMIN'])->group(function () {
     Route::get('revenueyearly', 'Admin\OrderController@totalRevenueYearly');
 
 
-    Route::get('products/comments/{product}', 'Admin\ProductController@comments');
     Route::delete('products/comments/delete/{productComment}', 'Admin\ProductController@deleteComment');
 
 });
@@ -78,6 +77,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('reset', 'ResetPasswordController@sendEmail');
 });
 // Route::resource('blogs', 'Admin\BlogController')->except(['create', 'edit']);
+Route::get('products/comments/{product}', 'Admin\ProductController@comments');
 
 Route::get('public/categories', 'User\CategoryController@index');
 Route::get('public/categories/{category}', 'User\CategoryController@show');
