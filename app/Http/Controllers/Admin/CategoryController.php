@@ -114,7 +114,6 @@ class CategoryController extends BaseController
 //        $category->category_name = $input['category_name'];
 ////        $category->detail = $input['detail'];
 //        $category->save();
-
         return $this->sendResponse($category->toArray(), 'Category updated successfully.');
     }
 

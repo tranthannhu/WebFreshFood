@@ -18,11 +18,18 @@ class OrderController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
+   
     public function index()
     {
         //
-    }
 
+        $orders = Order::with('orderDetails')
+        ->where ('user_id', Auth::id())
+        ->get(); 
+
+
+        return $this->sendResponse($orders->toArray(), 'Orders retrieved successfully.');
+    }
     /**
      * Store a newly created resource in storage.
      *

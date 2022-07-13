@@ -75,6 +75,8 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('reset', 'ResetPasswordController@sendEmail');
+    Route::get('orders', 'User\OrderController@index');
+
 });
 // Route::resource('blogs', 'Admin\BlogController')->except(['create', 'edit']);
 Route::get('products/comments/{product}', 'Admin\ProductController@comments');

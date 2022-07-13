@@ -26,9 +26,9 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             //
-            'category_name' => 'required',
-            'icon' => 'required',
-            'description' => 'required'
+            // 'category_name' => 'required',
+            // 'icon' => 'required',
+            // 'description' => 'required'
         ];
     }
 
