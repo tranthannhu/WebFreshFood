@@ -47,7 +47,7 @@ Route::middleware(['auth:api', 'api.role:ADMIN'])->group(function () {
     Route::resource('users', 'Admin\UserController')->only(['index']);
     Route::get('lastusers', 'Admin\UserController@lastestUser');
 
-    Route::get('orders', 'Admin\OrderController@index');
+    Route::get('adminorders', 'Admin\OrderController@index');
     Route::get('lastorders', 'Admin\OrderController@lastestOrder');
     Route::post('changestatus/{order}', 'Admin\OrderController@ChangeStatus');
     Route::get('revenuedaily', 'Admin\OrderController@totalRevenueDaily');
