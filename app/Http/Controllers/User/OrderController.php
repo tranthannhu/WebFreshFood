@@ -161,7 +161,7 @@ class OrderController extends BaseController
         // session(['cost_id' => $request->id]);
         session(['url_prev' => url()->previous()]);
         $url = session('url_prev', '/');
-        dd($url);
+        // dd($url);
         if ($request->vnp_ResponseCode == "00") {
             $this->apSer->thanhtoanonline(session('cost_id'));
             return redirect($url)->with('success', 'Đã thanh toán phí dịch vụ');
